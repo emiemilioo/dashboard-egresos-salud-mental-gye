@@ -27,9 +27,8 @@ Antes de la conversión, la información de los ocho años fue revisada, filtrad
 
 ```text
 data/
-└── processed/
-    ├── egresos_salud_mental_guayaquil_2017_2024.csv
-    └── egresos_salud_mental_guayaquil_2017_2024.json
+├── egresos_salud_mental_guayaquil_2017_2024.csv
+└── egresos_salud_mental_guayaquil_2017_2024.json
 
 scripts/
 └── convertir_csv_json.py
@@ -61,6 +60,12 @@ Desde la carpeta principal del proyecto se debe ejecutar:
 
 ```bash
 python scripts/convertir_csv_json.py
+```
+
+En Windows, si Python está instalado mediante Anaconda y el comando anterior no se reconoce, también se puede ejecutar con:
+
+```powershell
+& "C:\Users\joelj\anaconda3\python.exe" scripts\convertir_csv_json.py
 ```
 
 El script lee el CSV consolidado, comprueba las variables numéricas y las fechas, convierte los registros a JSON y verifica que ambos archivos contengan la misma cantidad de información. Los valores que no pudieron determinarse se representan como `null`.

@@ -5,10 +5,9 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_DIR = ROOT / "data" / "processed"
+DATA_DIR = ROOT / "data"
 CSV_PATH = DATA_DIR / "egresos_salud_mental_guayaquil_2017_2024.csv"
 JSON_PATH = DATA_DIR / "egresos_salud_mental_guayaquil_2017_2024.json"
-VALIDATION_PATH = DATA_DIR / "resumen_validacion.json"
 
 
 def main():
@@ -37,19 +36,6 @@ def main():
 
     if len(datos) != len(json_validado):
         raise ValueError("El CSV y el JSON no tienen la misma cantidad de registros.")
-
-    validacion = {
-        "estado": "correcto",
-        "registros_csv": len(datos),
-        "registros_json": len(json_validado),
-        "cantidades_coinciden": len(datos) == len(json_validado),
-        "valores_nulos_por_variable": {
-            columna: int(cantidad)
-            for columna, cantidad in datos.isna().sum().items()
-        },
-    }
-    with VALIDATION_PATH.open("w", encoding="utf-8") as archivo:
-        json.dump(validacion, archivo, ensure_ascii=False, indent=2)
 
     print("Conversión terminada correctamente.")
     print(f"Registros del CSV: {len(datos)}")
