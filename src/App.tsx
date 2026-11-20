@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { Box } from '@mui/material'
 import DashboardHeader from './components/layout/DashboardHeader'
 import FilterBar from './components/filters/FilterBar'
+import KpiSection from './components/kpi/KpiSection'
 import {
   diagnosisOptions,
   periodOptions,
 } from './data/filterOptions'
+import { kpiData } from './data/kpiData'
 
 function App() {
   const [period, setPeriod] = useState('all')
@@ -39,6 +41,8 @@ function App() {
         onDiagnosisChange={setDiagnosis}
         onClear={handleClearFilters}
       />
+
+      <KpiSection kpis={kpiData} />
     </Box>
   )
 }
