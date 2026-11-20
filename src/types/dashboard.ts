@@ -14,3 +14,14 @@ export interface KpiData {
   color: string
   backgroundColor: string
 }
+
+export interface DischargeRecord {
+  id: number
+  year: number
+  diagnosis: string
+  sex: string
+  ageGroup: string
+  sector: string
+  stayDays: number
+  dischargeCondition: string
+}

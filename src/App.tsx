@@ -9,6 +9,8 @@ import {
 } from './data/filterOptions'
 import { kpiData } from './data/kpiData'
 import ChartsSection from './components/charts/ChartsSection'
+import DataTableSection from './components/table/DataTableSection'
+import { dischargeRecords } from './data/dischargeRecords'
 
 function App() {
   const [period, setPeriod] = useState('all')
@@ -45,6 +47,7 @@ function App() {
 
       <KpiSection kpis={kpiData} />
       <ChartsSection />
+      <DataTableSection records={dischargeRecords} />
     </Box>
   )
 }
