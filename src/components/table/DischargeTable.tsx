@@ -18,16 +18,26 @@ function DischargeTable({ records }: DischargeTableProps) {
   return (
     <TableContainer sx={{ overflowX: 'auto' }}>
       <Table sx={{ minWidth: 900 }}>
-        <TableHead>
-          <TableRow>
+        <TableHead
+        sx={{
+            '& .MuiTableCell-root': {
+            backgroundColor: '#123B5D',
+            color: '#FFFFFF',
+            fontWeight: 700,
+            textAlign: 'center',
+            whiteSpace: 'nowrap',
+            },
+        }}
+        >
+        <TableRow>
             <TableCell>Año</TableCell>
             <TableCell>Diagnóstico</TableCell>
             <TableCell>Sexo</TableCell>
             <TableCell>Grupo de edad</TableCell>
             <TableCell>Sector</TableCell>
-            <TableCell align="right">Días de estancia</TableCell>
+            <TableCell>Días de estancia</TableCell>
             <TableCell>Condición al egreso</TableCell>
-          </TableRow>
+        </TableRow>
         </TableHead>
 
         <TableBody>

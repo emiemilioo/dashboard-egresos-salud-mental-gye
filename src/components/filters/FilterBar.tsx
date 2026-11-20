@@ -1,4 +1,6 @@
-import { Box, Container, Paper, Typography } from '@mui/material'
+
+import { Container, Paper, Typography } from '@mui/material'
+import Grid from '@mui/material/Grid'
 import type { FilterOption } from '../../types/dashboard'
 import ClearFiltersButton from './ClearFiltersButton'
 import SelectFilter from './SelectFilter'
@@ -32,37 +34,36 @@ function FilterBar({
           p: { xs: 2, md: 3 },
         }}
       >
-        <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
+        <Typography
+          variant="h6"
+          sx={{ mb: 2, fontWeight: 700 }}
+        >
           Filtros
         </Typography>
 
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              md: 'minmax(200px, 1fr) minmax(200px, 1fr) auto',
-            },
-            gap: 2,
-            alignItems: 'center',
-          }}
-        >
-          <SelectFilter
-            label="Periodo"
-            value={period}
-            options={periodOptions}
-            onChange={onPeriodChange}
-          />
+        <Grid container spacing={2}>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <SelectFilter
+              label="Periodo"
+              value={period}
+              options={periodOptions}
+              onChange={onPeriodChange}
+            />
+          </Grid>
 
-          <SelectFilter
-            label="Diagnóstico"
-            value={diagnosis}
-            options={diagnosisOptions}
-            onChange={onDiagnosisChange}
-          />
+          <Grid size={{ xs: 12, md: 5 }}>
+            <SelectFilter
+              label="Diagnóstico"
+              value={diagnosis}
+              options={diagnosisOptions}
+              onChange={onDiagnosisChange}
+            />
+          </Grid>
 
-          <ClearFiltersButton onClick={onClear} />
-        </Box>
+          <Grid size={{ xs: 12, md: 2 }}>
+            <ClearFiltersButton onClick={onClear} />
+          </Grid>
+        </Grid>
       </Paper>
     </Container>
   )

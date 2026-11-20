@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import {
   Avatar,
+  Box,
   Card,
   CardContent,
   Stack,
@@ -30,28 +31,41 @@ function KpiCard({
       sx={{
         height: '100%',
         border: '1px solid #DCE4EA',
+        borderLeft: `4px solid ${color}`,
         borderRadius: 2,
       }}
     >
       <CardContent>
-        <Stack
-            direction="row"
-            spacing={2}
-            sx={{
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-            }}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            gap: 2,
+          }}
         >
           <Stack spacing={1}>
             <Typography variant="body2" color="text.secondary">
               {title}
             </Typography>
 
-            <Typography variant="h4" sx={{ fontWeight: 700, color: '#17324D' }}>
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: 700,
+                color: '#17324D',
+              }}
+            >
               {value}
             </Typography>
 
-            <Typography variant="caption" color="text.secondary">
+            <Typography
+              variant="caption"
+              sx={{
+                color,
+                fontWeight: 600,
+              }}
+            >
               {comparison}
             </Typography>
           </Stack>
@@ -66,7 +80,7 @@ function KpiCard({
           >
             {icon}
           </Avatar>
-        </Stack>
+        </Box>
       </CardContent>
     </Card>
   )
