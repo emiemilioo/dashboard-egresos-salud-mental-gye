@@ -8,6 +8,7 @@ import {
   periodOptions,
 } from './data/filterOptions'
 import { kpiData } from './data/kpiData'
+import ChartsSection from './components/charts/ChartsSection'
 
 function App() {
   const [period, setPeriod] = useState('all')
@@ -43,6 +44,7 @@ function App() {
       />
 
       <KpiSection kpis={kpiData} />
+      <ChartsSection />
     </Box>
   )
 }
